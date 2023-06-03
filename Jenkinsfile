@@ -22,7 +22,8 @@ pipeline {
     stages {
         stage('Set Up Environment') {
             steps {
-                setEnv()
+                // setEnv()
+                echo 'setting up environment'
             }
         }
 
