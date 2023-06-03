@@ -24,7 +24,7 @@ pipeline {
         stage('Set Up Environment') {
             steps {
                 // setEnv()
-                echo 'setting up environment' params.DEPLOY_TARGET '${maven_proxy_deploy}'
+                echo 'setting up environment ${maven_proxy_deploy}'
             }
         }
 
