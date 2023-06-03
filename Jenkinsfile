@@ -10,14 +10,11 @@ pipeline {
         docker {   image 'ubuntu:18.04'   }
     }
 
+
     parameters {
         choice(
             name: 'DEPLOY_TARGET',
             choices: ['none', 'dev', 'tst', 'int', 'prd'], description: 'Select deployment target'
-        )
-        credentials(
-
-            required: false
         )
 
     }
@@ -60,12 +57,6 @@ pipeline {
                 {}
                     script {
                         pcf.deploy(
-                            paasApi: 'https://api.dhcpaas-sys-p03-edc5.dhc.corpintra.net',
-                            paasCredentialsId: 'athde.paas.user-scoped.p03',
-                            paasOrg: 'P03T100023',
-                            paasCloudSpace: 'service-value-rpt-week-dev',
-                            paasAppName: 'service-value-rpt-week-dev',
-                            manifestPath: 'manifest-dev.yml',
                             extraArgs: "--var dbpasswd=${DB_PASS} --var fileBrokerAuthUserName=${AUTH_USERNAME} --var fileBrokerAuthPassword=${AUTH_PASSWORD} --var encodedCreds=${ENCODED_CREDS_PASS}"
                         )
                     }
@@ -89,12 +80,7 @@ pipeline {
                 
                     script {
                         pcf.deploy(
-                            paasApi: 'https://api.dhcpaas-sys-p03-edc5.dhc.corpintra.net',
-                            paasCredentialsId: 'athde.paas.user-scoped.p03',
-                            paasOrg: 'P03T100023',
-                            paasCloudSpace: 'service-value-rpt-week-tst',
-                            paasAppName: 'service-value-rpt-week-tst',
-                            manifestPath: 'manifest-tst.yml',
+
                             extraArgs: "--var dbpasswd=${DB_PASS} --var fileBrokerAuthUserName=${AUTH_USERNAME} --var fileBrokerAuthPassword=${AUTH_PASSWORD} --var encodedCreds=${ENCODED_CREDS_PASS}"
                         )
                     }
