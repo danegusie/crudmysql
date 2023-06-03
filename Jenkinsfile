@@ -11,13 +11,13 @@ pipeline {
     }
 
 
-    parameters {
-        choice(
-            name: 'DEPLOY_TARGET',
-            choices: ['none', 'dev', 'tst', 'int', 'prd'], description: 'Select deployment target'
-        )
+    // parameters {
+    //     choice(
+    //         name: 'DEPLOY_TARGET',
+    //         choices: ['none', 'dev', 'tst', 'int', 'prd'], description: 'Select deployment target'
+    //     )
 
-    }
+    // }
 
     stages {
         stage('Set Up Environment') {
