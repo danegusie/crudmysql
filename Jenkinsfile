@@ -54,7 +54,6 @@ pipeline {
             }
             steps {
               
-                {}
                     script {
                         pcf.deploy(
                             extraArgs: "--var dbpasswd=${DB_PASS} --var fileBrokerAuthUserName=${AUTH_USERNAME} --var fileBrokerAuthPassword=${AUTH_PASSWORD} --var encodedCreds=${ENCODED_CREDS_PASS}"
