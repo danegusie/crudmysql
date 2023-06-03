@@ -32,11 +32,14 @@ pipeline {
 
             steps {
                sh  ' mvn ${maven_proxy_deploy} clean install -DskipTests'
+               
             }
         }
 
         stage('Test') {
             steps {
+                sh 'whoami'
+                sh 'chmod 777 mvnw'
                 sh './mvnw test'
                 // script {
                 //     maven.mvnTest(extraArgs: '-s settings.xml verify')
