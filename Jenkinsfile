@@ -37,14 +37,15 @@ pipeline {
 
         stage('Test') {
             steps {
-                script {
-                    maven.mvnTest(extraArgs: '-s settings.xml verify')
-                }
+                sh './mvnw test'
+                // script {
+                //     maven.mvnTest(extraArgs: '-s settings.xml verify')
+                // }
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
-                    junit 'target/failsafe-reports/*.xml'
+                    junit 'target/surefire-reports/test-*.xml'
+                    junit 'target/failsafe-reports/test-*.xml'
                 }
             }
         } 
