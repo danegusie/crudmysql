@@ -7,7 +7,7 @@ pipeline {
     }
 
     agent { 
-        docker {   image 'ubuntu:18.04'   }
+        docker {   image 'maven:3.9.0-eclipse-temurin-11'   }
     }
 
 
